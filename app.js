@@ -251,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (reviewsSection && reviewsSpacer && reviewCards.length > 0) {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const mobileMq = window.matchMedia('(max-width: 768px)');
 
         /* Slow stagger ,  cards use ~85% of scroll; last 15% = brief hold then unpin */
         const CARD_STARTS = [0.05, 0.20, 0.35, 0.50, 0.65];
@@ -309,30 +308,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        let scrollHandler = null;
-        let ticking = false;
-
-        const applyReviewsMode = () => {
-            const useStatic = prefersReducedMotion || mobileMq.matches;
-
-            if (scrollHandler) {
-                window.removeEventListener('scroll', scrollHandler);
-                window.removeEventListener('resize', scrollHandler);
-                scrollHandler = null;
-                ticking = false;
-            }
-
-            if (useStatic) {
-                reviewsSection.classList.add('reviews--static');
-                reviewCards.forEach((card) => {
-                    card.style.removeProperty('--card-opacity');
-                    card.style.removeProperty('--card-y');
-                });
-                return;
-            }
-
-            reviewsSection.classList.remove('reviews--static');
-            scrollHandler = () => {
+        if (prefersReducedMotion) {
+            reviewsSection.classList.add('reviews--static');
+        } else {
+            let ticking = false;
+            const onScrollOrResize = () => {
                 if (ticking) return;
                 ticking = true;
                 requestAnimationFrame(() => {
@@ -340,16 +320,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     ticking = false;
                 });
             };
-            window.addEventListener('scroll', scrollHandler, { passive: true });
-            window.addEventListener('resize', scrollHandler, { passive: true });
+            window.addEventListener('scroll', onScrollOrResize, { passive: true });
+            window.addEventListener('resize', onScrollOrResize, { passive: true });
             updateReviews();
-        };
-
-        applyReviewsMode();
-        if (typeof mobileMq.addEventListener === 'function') {
-            mobileMq.addEventListener('change', applyReviewsMode);
-        } else if (typeof mobileMq.addListener === 'function') {
-            mobileMq.addListener(applyReviewsMode);
         }
     }
 
@@ -372,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const ctx = canvas.getContext('2d');
         const PARTICLE_COLOR = '#dc143c';
-        const PARTICLE_COUNT = window.matchMedia('(max-width: 768px)').matches ? 35 : 80;
+        const PARTICLE_COUNT = 80;
         let particles = [];
 
         class Particle {
