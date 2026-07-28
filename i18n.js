@@ -12,6 +12,7 @@ window.PekoI18n = {
         'nav.faq': { en: 'FAQ', ne: 'प्रश्न' },
         'nav.location': { en: 'VISIT', ne: 'भेट्नुहोस्' },
         'hero.whatsapp': { en: 'Order on WhatsApp', ne: 'व्हाट्सएप अर्डर' },
+        'hero.order': { en: 'Order from Menu', ne: 'मेनुबाट अर्डर' },
         'hero.menu': { en: 'View Menu', ne: 'मेनु हेर्नुहोस्' },
 
         'badge.open': { en: 'Open now', ne: 'अहिले खुला छ' },
@@ -100,6 +101,7 @@ window.PekoI18n = {
         },
 
         'bar.whatsapp': { en: 'WhatsApp', ne: 'व्हाट्सएप' },
+        'bar.order': { en: 'Order', ne: 'अर्डर' },
         'bar.call': { en: 'Call', ne: 'कल' },
         'bar.directions': { en: 'Directions', ne: 'बाटो' }
     },

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Menu | Peko Peko Eatery — Order via WhatsApp</title>
+    <meta name="description" content="Full menu at Peko Peko Eatery, Sunakothi &amp; Thecho. Pizza, momo, keema noodles, wings &amp; more. Select items and order on WhatsApp.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pekopekoeatery.com/menu.html">
+    <meta name="theme-color" content="#dc143c">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body class="menu-page">
+
+    <header class="menu-page-header" role="banner">
+        <div class="container menu-page-header__inner">
+            <a href="index.html" class="menu-page-header__logo" aria-label="Peko Peko Eatery Home">
+                <img src="logo.png" alt="" width="48" height="48">
+            </a>
+            <nav class="menu-page-header__nav" aria-label="Menu page navigation">
+                <a href="index.html" class="menu-page-header__link">Home</a>
+                <a href="index.html#visit" class="menu-page-header__link">Visit</a>
+                <a href="tel:+9779849089199" class="menu-page-header__link menu-page-header__link--accent">9849089199</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="menu-page-main">
+        <div class="menu-page-hero">
+            <div class="container menu-page-hero__inner">
+                <p class="menu-page-eyebrow">Sunakothi · Lalitpur</p>
+                <h1 class="menu-page-title">Menu</h1>
+                <p class="menu-page-intro">
+                    Tap <strong>Add</strong> on any dish, then <strong>View order</strong> to review and send on WhatsApp.
+                </p>
+            </div>
+        </div>
+
+        <nav class="menu-order-nav" id="menuCategoryNav" aria-label="Menu categories"></nav>
+
+        <div class="container menu-order-tip-wrap">
+            <p class="menu-order-tip">
+                Filter by category · <strong>Add</strong> items as you browse.
+                <strong class="menu-order-tip__thali">Khana Thali — pre-order only, minimum 4 people.</strong>
+            </p>
+        </div>
+
+        <div id="menuOrderGrid" class="menu-order-grid"></div>
+    </main>
+
+    <div class="menu-order-bar" id="menuOrderBar" role="region" aria-label="View your order">
+        <button type="button" class="menu-order-bar__btn" id="menuOrderBarOpen">
+            <span class="menu-order-bar__label">View order</span>
+            <span class="menu-order-bar__meta"><span id="menuOrderCount">0</span> items · <span id="menuOrderTotal">Rs. 0</span></span>
+        </button>
+    </div>
+
+    <div class="menu-order-dialog" id="menuOrderDialog" aria-hidden="true">
+        <div class="menu-order-dialog__backdrop" id="menuOrderDialogBackdrop"></div>
+        <div class="menu-order-dialog__panel" role="dialog" aria-modal="true" aria-labelledby="menuDialogTitle">
+            <div class="menu-order-dialog__header">
+                <h2 class="menu-order-dialog__title" id="menuDialogTitle">Your order</h2>
+                <button type="button" class="menu-order-dialog__close" id="menuOrderDialogClose" aria-label="Close order">×</button>
+            </div>
+            <p class="menu-order-dialog__empty" id="menuCartEmpty">Your order is empty. Add dishes from the menu.</p>
+            <ul class="menu-order-dialog__list" id="menuCartList"></ul>
+            <div class="menu-order-dialog__footer">
+                <div class="menu-order-dialog__total">
+                    <span>Total</span>
+                    <strong id="menuCartTotal">Rs. 0</strong>
+                </div>
+                <button type="button" class="menu-order-dialog__clear" id="menuOrderClear">Clear order</button>
+                <button type="button" class="menu-order-dialog__whatsapp" id="menuOrderWhatsapp" disabled>
+                    Order on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="menu-page-footer">
+        <div class="container">
+            <a href="index.html" class="menu-page-footer__back">← Back to Peko Peko Eatery</a>
+            <p class="menu-page-footer__credit">
+                Designed by <a href="https://trexobyte.com" target="_blank" rel="noopener noreferrer">TrexoByte</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="menu-data.js"></script>
+    <script src="menu-order.js"></script>
+</body>
+</html>
