@@ -45,18 +45,18 @@ window.PekoI18n = {
         'bar.call': { en: 'Call us', ne: 'कल गर्नुहोस्' },
 
         'about.subtitle': { en: 'Meet the founder', ne: 'संस्थापकलाई भेट्नुहोस्' },
-        'about.heading': { en: 'Dipesh Maharjan', ne: 'दिपेश महर्जन' },
+        'about.heading': { en: 'Bikesh Maharjan', ne: 'बिकेश महर्जन' },
         'about.intro': {
-            en: 'Dipesh Maharjan founded Peko Peko Eatery with a simple idea: Sunakothi deserves a place where great food meets a genuinely peaceful atmosphere. Not another rushed city spot ,  a neighbourhood eatery built for slow evenings, cold drinks, and plates worth sharing.',
-            ne: 'दिपेश महर्जनले पेको पेको इटरी साधारण विचारबाट सुरु गरे ,  सुनाकोठीमा राम्रो खाना र साँच्चिकै शान्त वातावरण भएको ठाउँ हुनुपर्छ। हतारको सहरी ठाउँ होइन ,  आरामका साँझ, चिसो पेय र साझा गर्न लायक खानाका लागि बनेको ठाउँ।'
+            en: 'Bikesh Maharjan founded Peko Peko Eatery with a simple idea: Sunakothi deserves a place where great food meets a genuinely peaceful atmosphere. Not another rushed city spot ,  a neighbourhood eatery built for slow evenings, cold drinks, and plates worth sharing.',
+            ne: 'बिकेश महर्जनले पेको पेको इटरी साधारण विचारबाट सुरु गरे ,  सुनाकोठीमा राम्रो खाना र साँच्चिकै शान्त वातावरण भएको ठाउँ हुनुपर्छ। हतारको सहरी ठाउँ होइन ,  आरामका साँझ, चिसो पेय र साझा गर्न लायक खानाका लागि बनेको ठाउँ।'
         },
         'about.quote': {
             en: 'I wanted a place where people come hungry and leave happy ,  far from Kathmandu noise, close to good food and good company.',
             ne: 'मानिसहरू भोकाएर आउन् र खुसी भएर फर्कन् ,  काठमाडौंको शोरबाट टाढा, राम्रो खाना र राम्रो साथ नजिक।'
         },
         'about.invite': {
-            en: 'Come say hi to Dipesh and the team. Try the pizza and wings, stay for coffee or a Blue Lagoon, and make Peko Peko your escape.',
-            ne: 'दिपेश र टोलीलाई भेट्न आउनुहोस्। पिज्जा र विङ्स चाख्नुहोस्, कफी वा ब्लू ल्यागुनसँग बस्नुहोस् ,  पेको पेको तपाईंको शान्त ठाउँ बनोस्।'
+            en: 'Come say hi to Bikesh and the team. Try the pizza and wings, stay for coffee or a Blue Lagoon, and make Peko Peko your escape.',
+            ne: 'बिकेश र टोलीलाई भेट्न आउनुहोस्। पिज्जा र विङ्स चाख्नुहोस्, कफी वा ब्लू ल्यागुनसँग बस्नुहोस् ,  पेको पेको तपाईंको शान्त ठाउँ बनोस्।'
         },
 
         'atmosphere.subtitle': { en: 'The vibe', ne: 'वातावरण' },
@@ -70,7 +70,7 @@ window.PekoI18n = {
         'slot.friends': { en: 'FRIENDS & FAMILY', ne: 'साथी र परिवार' },
         'slot.drinks': { en: 'DRINKS CORNER', ne: 'पेय कुनो' },
         'slot.hint': { en: 'Click to add photo', ne: 'फोटो थप्न क्लिक गर्नुहोस्' },
-        'slot.founder': { en: 'DIPESH MAHARJAN', ne: 'दिपेश महर्जन' },
+        'slot.founder': { en: 'BIKESH MAHARJAN', ne: 'बिकेश महर्जन' },
 
         'drinks.subtitle': { en: 'Sip & chill', ne: 'पिउनुहोस् र आराम गर्नुहोस्' },
         'drinks.heading': { en: 'Signature drinks', ne: 'विशेष पेय' },
