@@ -413,8 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ========================================== */
     console.log(
         '%c🍽️ Peko Peko Eatery %cCome Hungry',
-        'font-family: "Bodoni Moda", serif; font-size: 20px; font-weight: 700; color: #ffffff;',
-        'font-family: "Playfair Display", serif; font-size: 18px; font-style: italic; color: #dc143c;'
+        'font-family: "Instrument Serif", serif; font-size: 20px; font-weight: 400; color: #ffffff;',
+        'font-family: "Instrument Serif", serif; font-size: 18px; font-style: italic; color: #dc143c;'
     );
     console.log('%cSunakothi & Thecho ,  pizza, wings, momo & keema noodles.', 'font-style: italic; color: #888;');
 

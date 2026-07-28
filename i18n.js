@@ -21,7 +21,7 @@ window.PekoI18n = {
 
         'announce': { en: '✦ COME HUNGRY · Pizza, Wings, Momo & Keema Noodles in Sunakothi ✦', ne: '✦ भोकाएर आउनुहोस् · सुनाकोठीमा पिज्जा, विङ्स, मोमो र कीमा नुडल्स ✦' },
 
-        'hero.tagline': { en: 'Come Hungry', ne: 'भोकाएर आउनुहोस्' },
+        'hero.tagline': { en: 'come hungry', ne: 'भोकाएर आउनुहोस्' },
         'hero.desc': {
             en: 'Fresh pizza, hot wings, momo & keema noodles in Sunakothi ,  a peaceful escape from Kathmandu traffic.',
             ne: 'ताजा पिज्जा, तातो विङ्स, मोमो र कीमा नुडल्स सुनाकोठीमा ,  काठमाडौंको ट्राफिकबाट टाढा शान्त ठाउँ।'
