@@ -11,8 +11,8 @@ window.PekoI18n = {
         'nav.escape': { en: 'ESCAPE', ne: 'शान्ति' },
         'nav.faq': { en: 'FAQ', ne: 'प्रश्न' },
         'nav.location': { en: 'VISIT', ne: 'भेट्नुहोस्' },
-        'hero.whatsapp': { en: 'ORDER ON WHATSAPP', ne: 'व्हाट्सएप अर्डर' },
-        'hero.menu': { en: 'VIEW MENU', ne: 'मेनु हेर्नुहोस्' },
+        'hero.whatsapp': { en: 'Order on WhatsApp', ne: 'व्हाट्सएप अर्डर' },
+        'hero.menu': { en: 'View Menu', ne: 'मेनु हेर्नुहोस्' },
 
         'badge.open': { en: 'Open now', ne: 'अहिले खुला छ' },
         'badge.closed': { en: 'Closed', ne: 'बन्द छ' },
@@ -23,11 +23,11 @@ window.PekoI18n = {
 
         'hero.tagline': { en: 'Come Hungry', ne: 'भोकाएर आउनुहोस्' },
         'hero.desc': {
-            en: 'The best casual restaurant in Sunakothi and Thecho for food, drinks, and a chill time. A peaceful escape from Kathmandu traffic. Pizza, hot chicken wings, momo, and keema noodles, made fresh and served with heart.',
-            ne: 'सुनाकोठी र थेचोको उत्कृष्ट क्याजुअल रेस्टुरेन्ट। खाना, पेय र आरामदायी समय। काठमाडौंको ट्राफिकबाट टाढा शान्त ठाउँ।'
+            en: 'Fresh pizza, hot wings, momo & keema noodles in Sunakothi ,  a peaceful escape from Kathmandu traffic.',
+            ne: 'ताजा पिज्जा, तातो विङ्स, मोमो र कीमा नुडल्स सुनाकोठीमा ,  काठमाडौंको ट्राफिकबाट टाढा शान्त ठाउँ।'
         },
-        'hero.directions': { en: 'GET DIRECTIONS', ne: 'बाटो हेर्नुहोस्' },
-        'hero.address': { en: '📍 Sunakothi, Lalitpur (near Thecho)', ne: '📍 सुनाकोठी, ललितपुर (थेचो नजिक)' },
+        'hero.directions': { en: 'Get Directions', ne: 'बाटो हेर्नुहोस्' },
+        'hero.address': { en: 'Sunakothi, Lalitpur (near Thecho)', ne: 'सुनाकोठी, ललितपुर (थेचो नजिक)' },
 
         'escape.subtitle': { en: 'Escape from Kathmandu', ne: 'काठमाडौंबाट बाहिर' },
         'escape.heading': { en: 'Quiet roads. Loud flavours.', ne: 'शान्त बाटो। जोशिलो स्वाद।' },
