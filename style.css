@@ -195,16 +195,16 @@ img { max-width: 100%; display: block; }
    1. ANNOUNCEMENT BAR
    ============================================ */
 .announcement-bar {
-    position: relative; z-index: 100; width: 100%; height: 2.5rem;
+    position: relative; z-index: 100; width: 100%; height: 2rem;
     background-color: var(--color-yellow-announce); overflow: hidden;
     display: flex; align-items: center;
 }
 .announcement-track { display: flex; white-space: nowrap; animation: marquee-scroll 20s linear infinite; }
 .announcement-text {
-    display: inline-block; padding: 0 3rem;
-    font-family: var(--font-body); font-size: var(--type-label-size); font-weight: 600;
-    letter-spacing: normal; text-transform: uppercase;
-    color: var(--color-white); line-height: 2.5rem;
+    display: inline-block; padding: 0 2.25rem;
+    font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--color-white); line-height: 2rem;
 }
 @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .announcement-bar:hover .announcement-track { animation-play-state: paused; }
@@ -749,9 +749,22 @@ img { max-width: 100%; display: block; }
 .cta-image--right { clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%); }
 .cta-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cta-content { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2.5rem; gap: 1.2rem; }
-.cta-heading { font-size: clamp(2.5rem, 6vw, 6rem); color: var(--color-maroon); line-height: var(--type-serif-tight); display: flex; flex-direction: column; align-items: center; gap: 0.05em; }
-.cta-heading-main { display: block; }
-.cta-heading-accent { font-size: clamp(2.5rem, 7vw, 5rem); line-height: var(--type-serif-tight); display: block; margin-top: -0.12em; }
+.cta-heading {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    color: var(--color-maroon);
+    line-height: 1.05;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3em;
+}
+.cta-heading-main { display: block; line-height: 1.05; }
+.cta-heading-accent {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.05;
+    display: block;
+    margin-top: 0;
+}
 .cta-description { font-size: var(--type-label-size); font-weight: 500; letter-spacing: normal; text-transform: uppercase; color: rgba(74,14,27,0.6); max-width: 28.125rem; line-height: var(--type-label-lh); }
 .cta-btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; color: var(--color-crimson); border: 2px solid var(--color-crimson); border-radius: 50px; padding: 0.75rem 2.2rem; background: transparent; text-transform: uppercase; cursor: pointer; transition: all var(--transition-speed) ease; margin-top: 0.3rem; }
 .cta-btn:hover { background: var(--color-crimson); color: var(--color-white); box-shadow: 0 0 20px rgba(196,30,58,0.35); transform: translateY(-2px); }
@@ -1190,7 +1203,7 @@ img { max-width: 100%; display: block; }
     font-weight: 700;
     font-size: 1.2rem;
 }
-.faq-item[open] .faq-question::after { content: 'âˆ’'; }
+.faq-item[open] .faq-question::after { content: '\00D7'; }
 .faq-answer {
     font-family: var(--font-sans);
     font-size: 0.9rem;
@@ -1246,7 +1259,7 @@ img { max-width: 100%; display: block; }
     font-weight: 400;
     color: var(--color-white);
     line-height: var(--type-serif-tight);
-    margin-bottom: 1.4rem;
+    margin-bottom: 2.25rem;
 }
 
 .prefooter-line {
@@ -1727,7 +1740,7 @@ img { max-width: 100%; display: block; }
 .footer-statement {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(3rem, 11vw, 12.5rem);
+    font-size: clamp(4rem, 14vw, 15.5rem);
     color: var(--color-crimson);
     line-height: var(--type-serif-tight);
     text-align: center;
@@ -1970,14 +1983,14 @@ img { max-width: 100%; display: block; }
     .gallery-subtitle { font-size: 0.58rem; line-height: 1.5; padding: 0 0.5rem; }
     .btn, .lang-toggle, .open-badge { -webkit-tap-highlight-color: transparent; }
     .footer-map { height: 200px; }
-    .footer-statement { font-size: clamp(2.2rem, 9vw, 6rem); letter-spacing: 0.03em; }
+    .footer-statement { font-size: clamp(2.8rem, 11vw, 7.5rem); letter-spacing: 0.03em; }
 }
 
 /* ============================================
    17. RESPONSIVE ,  MOBILE (480px)
    ============================================ */
 @media (max-width: 480px) {
-    .announcement-text { font-size: 0.75rem; padding: 0 1.5rem; }
+    .announcement-text { font-size: 0.68rem; padding: 0 1.25rem; }
     .logo { font-size: 1.2rem; margin-right: 0; }
     .logo-img { height: 48px; }
     .hero-headline { font-size: clamp(2.15rem, 11vw, 3.5rem); }
@@ -2046,7 +2059,7 @@ img { max-width: 100%; display: block; }
     .footer-hours-time { font-size: 0.58rem; }
     .footer-map { height: 180px; }
     .footer-statement {
-        font-size: clamp(2.2rem, 10vw, 5.5rem);
+        font-size: clamp(2.6rem, 11vw, 6.75rem);
         letter-spacing: 0.03em;
         gap: 0.6rem;
         padding: 0;
