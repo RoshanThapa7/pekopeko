@@ -215,18 +215,39 @@ img { max-width: 100%; display: block; }
 .hero {
     position: relative; min-height: 100vh; min-height: 100dvh;
     display: flex; flex-direction: column;
-    background: linear-gradient(165deg, var(--color-black) 0%, var(--color-maroon) 45%, #1a0a0c 100%);
+    background: var(--color-maroon);
     overflow: hidden;
 }
-.floating-elements { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
-.float-item { position: absolute; border-radius: 50%; opacity: 0.08; }
-.float-item--smoke-top-right { top: -5%; right: -3%; width: 35vw; height: 35vw; max-width: 500px; max-height: 500px; background: radial-gradient(circle, var(--color-gold) 0%, transparent 70%); animation: float-drift 12s ease-in-out infinite alternate; }
-.float-item--ember-bottom-left { bottom: -4%; left: -2%; width: 28vw; height: 28vw; max-width: 400px; max-height: 400px; background: radial-gradient(circle, var(--color-crimson) 0%, transparent 70%); animation: float-drift 10s ease-in-out infinite alternate-reverse; }
-.float-item--skewer-top-left { top: 8%; left: -2%; width: 12vw; height: 12vw; max-width: 180px; max-height: 180px; border: 2px solid var(--color-gold); border-radius: 0; opacity: 0.12; transform: rotate(45deg); animation: float-rotate 15s linear infinite; }
-.float-item--spice-bottom-right { bottom: 10%; right: -1%; width: 15vw; height: 15vw; max-width: 220px; max-height: 220px; background: radial-gradient(circle, var(--color-gold-light) 0%, transparent 70%); opacity: 0.06; animation: float-pulse 6s ease-in-out infinite alternate; }
-@keyframes float-drift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -20px) scale(1.1); } }
-@keyframes float-rotate { 0% { transform: rotate(45deg); } 100% { transform: rotate(405deg); } }
-@keyframes float-pulse { 0% { opacity: 0.04; transform: scale(0.9); } 100% { opacity: 0.1; transform: scale(1.15); } }
+
+/* Floating food doodles — hidden until real assets are added */
+.hero-floats {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-floats:not([data-ready="true"]) {
+    display: none;
+}
+
+.hero-float {
+    position: absolute;
+    height: auto;
+    opacity: 0.92;
+    animation: hero-float-drift 7s ease-in-out infinite;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes hero-float-drift {
+    0%, 100% { transform: translateY(0) rotate(var(--hero-rot, 0deg)); }
+    50% { transform: translateY(-10px) rotate(calc(var(--hero-rot, 0deg) + 4deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-float { animation: none; transform: rotate(var(--hero-rot, 0deg)); }
+}
 
 /* ============================================
    3. NAVIGATION
