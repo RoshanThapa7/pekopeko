@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    PEKO PEKO EATERY ,  COMPLETE STYLES
    Black Â· Crimson Â· White
    ============================================ */
@@ -542,7 +542,7 @@ img { max-width: 100%; display: block; }
 }
 
 .gallery-bridge-link::after {
-    content: 'â†“';
+    content: '\2193';
     font-size: 0.85rem;
     line-height: 1;
 }

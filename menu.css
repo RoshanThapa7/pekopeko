@@ -338,7 +338,27 @@
     background: linear-gradient(145deg, #f8f4f0 0%, #efe8e0 100%);
     border: 2px dashed rgba(220, 20, 60, 0.32);
     border-radius: 10px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    overflow: hidden;
+}
+
+.menu-order-card__photo--has-img {
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    background: #111;
+    padding: 0;
+}
+
+.menu-order-card__photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.35s ease;
+}
+
+.menu-order-card:hover .menu-order-card__photo-img {
+    transform: scale(1.08);
 }
 
 .menu-order-card__photo[data-photo="momo-steam"] {
@@ -493,6 +513,67 @@
     padding: 0.32rem 0.55rem;
     font-size: 0.68rem;
 }
+
+/* —— Inline qty stepper (− N +) —— */
+.menu-order-card__stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--color-crimson);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--color-crimson);
+}
+
+.menu-order-card__stepper-btn {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    width: 1.85rem;
+    height: 1.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: background 0.15s ease;
+    flex-shrink: 0;
+}
+
+.menu-order-card__stepper-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.menu-order-card__stepper-qty {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-white);
+    min-width: 1.2rem;
+    text-align: center;
+    padding: 0 0.1rem;
+    user-select: none;
+}
+
+/* smaller stepper for variant rows */
+.menu-order-card__variant-ctrl .menu-order-card__stepper-btn {
+    width: 1.55rem;
+    height: 1.55rem;
+    font-size: 0.9rem;
+}
+
+.menu-order-card__variant-ctrl .menu-order-card__stepper-qty {
+    font-size: 0.75rem;
+}
+
+.menu-order-card__variant-ctrl .menu-order-card__add {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.68rem;
+}
+
 
 /* —— Bottom “View order” pill —— */
 .menu-order-bar {

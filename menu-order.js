@@ -46,9 +46,70 @@
         default: 'Photo',
     };
 
-    const photoBlock = (photo) => {
+    const FOOD_IMAGES = {
+        /* Wings */
+        'hot-wings':                  'images/food/spicyWings.png',
+        'spicy-wings':                'images/food/spicyWings.png',
+        'wings':                      'images/food/spicyWings.png',
+        'buffalo-wings':              'images/food/buffaloWings.png',
+
+        /* Pizza */
+        'pizza':                      'images/food/MargheritaPizza.png',
+        'margherita':                 'images/food/MargheritaPizza.png',
+        'pizza-margherita':           'images/food/MargheritaPizza.png',
+        'pizza-veggi':                'images/food/veggieLoverPizza.png',
+        'pizza-green-garden':         'images/food/veggieLoverPizza.png',
+        'pizza-tandoori':             'images/food/tandooriPizza.png',
+        'pepperoni-pizza':            'images/food/pepperoniPizza.png',
+        'pepperoni-chicken':          'images/food/pepperoniPizzaChicken.png',
+        'pizza-pepperoni-chicken':    'images/food/pepperoniPizzaChicken.png',
+        'pizza-pepperoni-pork':       'images/food/pepperoniPizza.png',
+
+        /* Noodles / Thukpa / Chowmein */
+        'noodles':                    'images/food/keemaNoodles.png',
+        'keema-noodles':              'images/food/keemaNoodles.png',
+        'keema-chicken':              'images/food/keemaNoodles.png',
+        'keema-buff':                 'images/food/keemaNoodles.png',
+        'keema-egg':                  'images/food/keemaNoodles.png',
+        'thukpa':                     'images/food/thukpa.png',
+        'chowmein':                   'images/food/chowmien.png',
+
+        /* Fried Rice */
+        'fried-rice':                 'images/food/friedRice.png',
+
+        /* Soup */
+        'soup':                       'images/food/soup.png',
+
+        /* Sekuwa */
+        'sekuwa-chicken':             'images/food/chickenSekuwa.png',
+        'sekuwa-pork':                'images/food/porkSekuwa.png',
+
+        /* Thali */
+        'thali':                      'images/food/thaliSet.png',
+
+        /* Main Course */
+        'grilled-chicken':            'images/food/grilledChicken.jpg',
+        'pork-chop':                  'images/food/porkChop.png',
+        'triple-rice':                'images/food/tripleRice.png',
+        'chicken-chips':              'images/food/chicken&Chips.png',
+        'chicken-sizzler':            'images/food/chickenSizzler.png',
+    };
+
+    const photoBlock = (photo, item) => {
+        const id = item && item.id;
+        const imgSrc = (id && FOOD_IMAGES[id]) || FOOD_IMAGES[photo];
         const key = photo || 'default';
         const label = PHOTO_LABELS[key] || 'Photo';
+
+        if (imgSrc) {
+            const name = (item && item.name) || label;
+            return `
+        <div class="menu-order-card__photo menu-order-card__photo--has-img" data-photo="${key}">
+            <img src="${imgSrc}" alt="${name}" class="menu-order-card__photo-img" loading="lazy">
+        </div>
+    `;
+        }
+
         return `
         <div class="menu-order-card__photo" data-photo="${key}" aria-hidden="true">
             <span class="menu-order-card__photo-label">${label}</span>
@@ -56,11 +117,19 @@
     `;
     };
 
+    const stepperHtml = (id, qty, label) => qty > 0
+        ? `<div class="menu-order-card__stepper" data-stepper-id="${id}">
+               <button type="button" class="menu-order-card__stepper-btn" data-card-minus="${id}" aria-label="Remove one ${label}">−</button>
+               <span class="menu-order-card__stepper-qty">${qty}</span>
+               <button type="button" class="menu-order-card__stepper-btn menu-order-card__stepper-btn--plus" data-card-plus="${id}" aria-label="Add one more ${label}">+</button>
+           </div>`
+        : `<button type="button" class="menu-order-card__add" data-add="${id}" aria-label="Add ${label}">Add</button>`;
+
     const variantRows = (variants) => variants.map((v) => `
         <li class="menu-order-card__variant">
             <span class="menu-order-card__variant-label">${v.label}</span>
             <span class="menu-order-card__variant-price">${formatRs(v.price)}</span>
-            <button type="button" class="menu-order-card__add" data-add="${v.id}" aria-label="Add ${v.label}">Add</button>
+            <div class="menu-order-card__variant-ctrl" data-variant-id="${v.id}">${stepperHtml(v.id, 0, v.label)}</div>
         </li>
     `).join('');
 
@@ -68,13 +137,13 @@
         const card = document.createElement('article');
         card.className = 'menu-order-card';
         card.innerHTML = `
-            ${photoBlock(item.photo)}
+            ${photoBlock(item.photo, item)}
             <div class="menu-order-card__body">
                 <h3 class="menu-order-card__name">${item.name}</h3>
                 <p class="menu-order-card__desc">${item.desc}</p>
                 <div class="menu-order-card__footer">
                     <span class="menu-order-card__price">${formatRs(item.price)}</span>
-                    <button type="button" class="menu-order-card__add" data-add="${item.id}" aria-label="Add ${item.name}">Add</button>
+                    <div class="menu-order-card__item-ctrl" data-item-id="${item.id}">${stepperHtml(item.id, 0, item.name)}</div>
                 </div>
             </div>
         `;
@@ -85,7 +154,7 @@
         const card = document.createElement('article');
         card.className = 'menu-order-card menu-order-card--group';
         card.innerHTML = `
-            ${photoBlock(group.photo)}
+            ${photoBlock(group.photo, group)}
             <div class="menu-order-card__body">
                 <h3 class="menu-order-card__name">${group.name}</h3>
                 <p class="menu-order-card__desc">${group.desc}</p>
@@ -270,11 +339,20 @@
         if (bar) bar.classList.toggle('menu-order-bar--visible', hasItems);
         if (whatsappBtn) whatsappBtn.disabled = !hasItems;
 
-        document.querySelectorAll('.menu-order-card__add').forEach((btn) => {
-            const id = btn.dataset.add;
+        /* Re-render each item ctrl */
+        document.querySelectorAll('[data-item-id]').forEach((wrap) => {
+            const id = wrap.dataset.itemId;
             const qty = cart.get(id) || 0;
-            btn.textContent = qty > 0 ? `(${qty})` : 'Add';
-            btn.classList.toggle('menu-order-card__add--active', qty > 0);
+            const label = orderables.get(id)?.name || id;
+            wrap.innerHTML = stepperHtml(id, qty, label);
+        });
+
+        /* Re-render each variant ctrl */
+        document.querySelectorAll('[data-variant-id]').forEach((wrap) => {
+            const id = wrap.dataset.variantId;
+            const qty = cart.get(id) || 0;
+            const label = orderables.get(id)?.name || id;
+            wrap.innerHTML = stepperHtml(id, qty, label);
         });
 
         renderCartList();
@@ -301,9 +379,12 @@
     };
 
     grid.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-add]');
-        if (!btn) return;
-        changeQty(btn.dataset.add, 1);
+        const add  = e.target.closest('[data-add]');
+        const plus = e.target.closest('[data-card-plus]');
+        const minus = e.target.closest('[data-card-minus]');
+        if (add)   changeQty(add.dataset.add, 1);
+        if (plus)  changeQty(plus.dataset.cardPlus, 1);
+        if (minus) changeQty(minus.dataset.cardMinus, -1);
     });
 
     cartListEl?.addEventListener('click', (e) => {
